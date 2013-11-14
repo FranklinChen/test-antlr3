@@ -1,12 +1,17 @@
 grammar SimpleCalc;
  
+options {
+    output = AST;
+    ASTLabelType = CommonTree;
+}
+
 tokens {
     PLUS    = '+' ;
     MINUS   = '-' ;
     MULT    = '*' ;
     DIV = '/' ;
 }
- 
+
 @header {
 package com.franklinchen;
 }
@@ -16,20 +21,36 @@ package com.franklinchen;
 }
 
 @members {
-    public static void main(String[] args) throws Exception {
-        SimpleCalcLexer lex = new SimpleCalcLexer(new ANTLRFileStream(args[0]));
-        CommonTokenStream tokens = new CommonTokenStream(lex);
- 
-        SimpleCalcParser parser = new SimpleCalcParser(tokens);
- 
-        try {
-            parser.expr();
-        } catch (RecognitionException e)  {
-            e.printStackTrace();
-        }
+    private List<RecognitionException> exceptions =
+        new ArrayList<RecognitionException>();
+    
+    public List<RecognitionException> getExceptions() {
+        return this.exceptions;
+    }
+
+    @Override
+    public void displayRecognitionError(String[] tokenNames,
+                                        RecognitionException e) {
+        this.exceptions.add(e);
     }
 }
- 
+
+@lexer::members {
+    // TODO Bad duplication, should refactor.
+    private List<RecognitionException> exceptions =
+        new ArrayList<RecognitionException>();
+    
+    public List<RecognitionException> getExceptions() {
+        return this.exceptions;
+    }
+
+    @Override
+    public void displayRecognitionError(String[] tokenNames,
+                                        RecognitionException e) {
+        this.exceptions.add(e);
+    }
+}
+
 /*------------------------------------------------------------------
  * PARSER RULES
  *------------------------------------------------------------------*/

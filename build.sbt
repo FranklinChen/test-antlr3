@@ -12,15 +12,13 @@ description := "Test ANTLR3 plugin with SBT Scala"
 
 version := "1.0.0"
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.10.3"
+
+javacOptions += "-Xlint:unchecked"
 
 libraryDependencies ++= Seq(
-  "org.scalacheck" %% "scalacheck" % "1.10.1" % "test",
-  "org.specs2" %% "specs2" % "2.1.1" % "test"
+  "org.scalacheck" %% "scalacheck" % "1.11.0" % "test",
+  "org.specs2" %% "specs2" % "2.3.3" % "test"
 )
-
-resolvers += Classpaths.typesafeReleases
-
-resolvers += Classpaths.typesafeSnapshots
 
 seq(sbtantlr.SbtAntlrPlugin.antlrSettings: _*)
