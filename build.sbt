@@ -17,8 +17,8 @@ scalaVersion := "2.10.3"
 javacOptions += "-Xlint:unchecked"
 
 libraryDependencies ++= Seq(
-  "org.scalacheck" %% "scalacheck" % "1.11.0" % "test",
-  "org.specs2" %% "specs2" % "2.3.3" % "test"
+  "org.scalacheck" %% "scalacheck" % "1.11.1" % "test",
+  "org.specs2" %% "specs2" % "2.3.6" % "test"
 )
 
 seq(sbtantlr.SbtAntlrPlugin.antlrSettings: _*)

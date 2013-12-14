@@ -4,4 +4,4 @@
 
 Use the [`sbt-antlr`](https://github.com/stefri/sbt-antlr) plugin.
 
-Note: [SBT 0.13.x is not yet supported by `sbt-antlr`](https://github.com/stefri/sbt-antlr/issues/7).
+Note: [SBT 0.13.x is not yet supported by the current release of `sbt-antlr`](https://github.com/stefri/sbt-antlr/issues/7) but there is a [fork that works](git://github.com/Blaisorblade/sbt-antlr#sbt0.13).
