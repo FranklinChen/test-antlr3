@@ -22,3 +22,5 @@ libraryDependencies ++= Seq(
 )
 
 seq(sbtantlr.SbtAntlrPlugin.antlrSettings: _*)
+
+resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases"
