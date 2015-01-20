@@ -9,10 +9,8 @@ import org.antlr.runtime._
   Here we catch and save errors ourselves into some state, then retrieve.
   */
 class SimpleCalcSpec extends Specification { def is = s2"""
-  SimpleCalc parser
-
-    Good expression $e1
-    Bad expression  $e2
+  Good expression $e1
+  Bad expression  $e2
   """
 
   def e1 = {
